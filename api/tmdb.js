@@ -1,5 +1,6 @@
 export default async function handler(req, res) {
-  const url = `https://api.themoviedb.org/3${req.url}`;
+  const path = req.url.replace('/api/tmdb', '');
+  const url = `https://api.themoviedb.org/3${path}`;
   try {
     const response = await fetch(url, {
       headers: {
