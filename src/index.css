@@ -28,7 +28,7 @@ input[type="text"]{
 }
 
 .card{
-    @apply w-[285px] h-[375px] my-3 shadow-md p-4
+    @apply w-full max-w-[285px] h-[375px] my-3 shadow-md p-4
 
 }
 p{

@@ -71,8 +71,8 @@ const App = () => {
 	setSearchMovie = {setSearchMovie}
 	/>
 	</header>
-	<h2 className="text-white mx-[75px]">All Movies</h2>
-	<section className="grid grid-cols-4 justify-items-center mx-[75px] ">
+	<h2 className="text-white mx-4 sm:mx-6 md:mx-[75px]">All Movies</h2>
+	<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center mx-4 sm:mx-6 md:mx-[75px]">
 	{isLoading ? 
 	    <Spinner /> : (errorMsg) ? <p className="text-white">{errorMsg} </p> :
 	    movieList.map((movie) => (
