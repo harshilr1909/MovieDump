@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@utility bg-gradient{
+    @apply bg-gradient-to-r from-black to-[#0f0066]
+}
+
+@utility text-gradient{
+    @apply bg-gradient-to-r text-transparent from-white to-[#81e2f7] bg-clip-text  
+}
+ @utility card-bg{
+     @apply bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 shadow-lg
+ }
+
+@theme {
+    --font-display: Bungee, Sans-Serif;
+    --font-roboto:"Roboto", sans-serif;
+}
+h1{
+    @apply text-5xl font-display
+}
+
+h2{
+    @apply font-roboto text-white font-extrabold 
+}
+
+input[type="text"]{
+    @apply text-lg text-white font-normal font-roboto
+}
+
+.card{
+    @apply w-[285px] h-[375px] my-3 shadow-md p-4
+
+}
+p{
+    @apply font-roboto text-white text-sm
+}
+
+.rating{
+    @apply flex  gap-2
+}
+
+.card-container {
+    @apply grid  grid-cols-4 justify-items-center gap-5
+}
