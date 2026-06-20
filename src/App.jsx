@@ -5,6 +5,18 @@ import Spinner from './components/Spinner.jsx';
 import { useState,useEffect } from "react";
 import {useDebounce} from "react-use";
 
+const API_DB_URL = 'https://api.themoviedb.org/3'
+
+const API_ACCESS_TOKEN = import.meta.env.VITE_TMDB_API_ACCESS_TOKEN
+
+const API_OPTIONS = {
+    method:'GET',
+    headers : {
+	accept : 'application/json',
+	Authorization: `Bearer ${API_ACCESS_TOKEN}`,
+    }
+}
+
 const App = () => {
     const [searchMovie, setSearchMovie] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
@@ -18,10 +30,10 @@ const App = () => {
     const fetchMovies = async (query='') => {
 	setIsLoading(true);
 	try {
-	    const endpoint = query
-		? `/api/tmdb/search/movie?query=${encodeURIComponent(query)}`
-		: `/api/tmdb/discover/movie?sort_by=popularity.desc`;
-	    const response = await fetch(endpoint);
+	    const endpoint = query 
+		? `${API_DB_URL}/search/movie?query=${encodeURIComponent(query)}`
+		:`${API_DB_URL}/discover/movie?sort_by=popularity.desc`;
+	    const response = await fetch(endpoint,API_OPTIONS);
 
 	    if(!response.ok){
 		throw new Error("Error fetching movies");
